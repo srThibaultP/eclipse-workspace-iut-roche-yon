@@ -1,0 +1,7 @@
+import java.util.Scanner;
+
+public class main_variables {
+	char texte;
+	Scanner clavier = new Scanner(System.in);
+	System.out.printf("%c", texte);
+}

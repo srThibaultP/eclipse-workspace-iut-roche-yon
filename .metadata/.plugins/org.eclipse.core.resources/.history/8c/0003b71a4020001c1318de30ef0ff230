@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class main_Variables {
+	public static void main(String[] args) {
+		boolean test = false;
+		while (test = false) {
+			demande(test);
+		}
+	}
+	
+	public static void demande(boolean test) {
+		char lettre;
+		int ascii;
+		
+		Scanner sc = new Scanner(System.in);
+		lettre = sc.next().charAt(0);
+		ascii = (int) lettre;
+		
+		if(ascii >= 65 && ascii <= 90 || ascii >= 97 && ascii <= 122) {
+			System.out.println(lettre);
+			System.out.println(ascii);
+			test = true;
+		}
+		else test = false;
+	}
+}

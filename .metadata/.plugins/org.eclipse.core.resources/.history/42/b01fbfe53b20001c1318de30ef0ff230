@@ -1,0 +1,8 @@
+
+public class main_Variables {
+	char lettre;
+	int ascii;
+	
+	lettre = new Scanner(System.in);
+	ascii = (int) lettre;
+}

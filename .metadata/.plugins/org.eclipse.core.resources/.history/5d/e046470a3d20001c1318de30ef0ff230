@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class main_Variables {
+	public static void main(String[] args) {
+		char lettre;
+		int ascii;
+		
+		Scanner sc = new Scanner(System.in);
+		lettre = sc.next().charAt(0);
+		ascii = (int) sc.next().charAt(0);
+		
+		if(ascii >= 65 && ascii <= 90 || ascii >= 97 && ascii <= 122) {
+			System.out.print(lettre);
+			System.out.print(ascii);
+		}
+	}
+}

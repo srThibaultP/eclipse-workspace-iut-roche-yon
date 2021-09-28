@@ -1,0 +1,6 @@
+
+public class mainConv {
+	double somme = 57;
+	
+	System.out.println(somme);
+}

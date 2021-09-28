@@ -1,0 +1,10 @@
+import java.util.Scanner;
+
+public class main_variables {
+	public static void main(String[] args) {
+		char texte;
+		Scanner clavier = new Scanner(System.in);
+		texte = reader.
+		System.out.println(texte);
+	}
+}

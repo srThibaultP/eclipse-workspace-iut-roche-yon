@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class main_Variables {
+	public static void main(String[] args) {
+		char lettre;
+		int ascii;
+		
+		Scanner sc = new Scanner(System.in);
+		ascii = (int) sc.next().charAt(0);
+		System.out.println(ascii);
+	}
+}
