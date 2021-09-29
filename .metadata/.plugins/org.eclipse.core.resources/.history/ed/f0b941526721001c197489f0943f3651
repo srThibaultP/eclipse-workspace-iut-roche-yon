@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class mainTableaux {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner (System.in);
+		
+		double[] devises = new double[5];
+		devises[0] = sc.nextInt();
+		devises[1] = (0.86*devises[0]);
+		devises[2] = (0.0077*devises[0]);
+		devises[3] = (1.17*devises[0]);
+		devises[4] = (0.13*devises[0]);
+		System.out.println(devises[0] + "€");
+		System.out.println(devises[1] + "$");
+		System.out.println(devises[2] + "¥");
+		System.out.println(devises[3] + "£");
+		System.out.println(devises[4] + "¥");
+	}
+}

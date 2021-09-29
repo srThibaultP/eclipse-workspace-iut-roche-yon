@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class mainTableaux {
+	public static void main(String[] args) {
+		Scanner clavier = new Scanner (System.in);
+		
+		float[] devises = new float[5];
+		System.out.print("Veuillez entrez valeur : ");
+		devises[0] = clavier.nextInt();
+		devises[1] = (0.86*devises[0]);
+		devises[2] = (0.0077*devises[0]);
+		devises[3] = (1.17*devises[0]);
+		devises[4] = (0.13*devises[0]);
+		System.out.println("Euros : " + devises[0]);
+		System.out.println("Dollars : " + devises[1]);
+		System.out.println("Yens : " + devises[2]);
+		System.out.println("Livres : " + devises[3]);
+		System.out.println("Yuans : " + devises[4]);
+	}
+}

@@ -27,17 +27,14 @@ public class mainTableaux {
 		*/
 //--------------------------------------------------
 		String[][] guitares = {
-				{"User", "Gibson Les Paul", "Gretsch G5034", "Seagull S6", "Godin 5th av"},
+				{"", "Gibson Les Paul", "Gretsch G5034", "Seagull S6", "Godin 5th av"},
 				{"Mick", "18", "1", "27", "12"},
 				{"Keith", "4", "25", "0", "2"},
 				{"Brian", "25", "41", "36", "2"},
 				{"Ronnie", "1", "2", "2", "1"},
 		};
-		for(int i=0; i < 5; i++) {
-			for(int j=0; j < 5; j++) {
-				System.out.print(guitares[i][j] + " | ");
-			}
-			System.out.println("");
+		for(int i=0; i < 3; i++) {
+			System.out.println(guitares[i][i]);
 		}
 	}
 }

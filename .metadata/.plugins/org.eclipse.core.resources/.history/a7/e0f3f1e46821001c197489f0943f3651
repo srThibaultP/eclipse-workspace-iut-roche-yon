@@ -37,7 +37,7 @@ public class mainTableaux {
 			for(int j=0; j < 5; j++) {
 				System.out.print(guitares[i][j] + " | ");
 			}
-			System.out.println("");
+			//System.out.println("");
 		}
 	}
 }
