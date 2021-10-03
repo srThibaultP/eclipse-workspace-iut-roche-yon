@@ -6,7 +6,7 @@ public class Avatar {
 		// TODO Auto-generated method stub
 		Combattant Orc = new Combattant(78, 12, 2, 1, 2);
 		Villageois Bucheron = new Villageois(25, 42);
-		System.out.println(Orc);
+		System.out.println(Orc.getForce());
 		
 	}
 
