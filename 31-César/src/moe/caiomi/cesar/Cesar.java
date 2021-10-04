@@ -13,32 +13,75 @@ public class Cesar {
 		this.messageCode = motAcoder;
 		for(int i = 0; i < this.messageCode.length(); i++){
 			char c = this.messageCode.charAt(i);
+			int temp;
 			if(Character.isLetter(c)){
 				if(Character.isUpperCase(c)){
-					c = (char)(((c - 'A' + this.key) % 26) + 'A');
+					int ascii = (int) c;
+					System.out.println("lettre="+c);
+					System.out.println("ascii="+ascii);
+					ascii += key;
+					if (ascii > 90) {
+						temp = ascii - 91;
+						ascii = 65 + temp;
+					}
+					c = (char) ascii;
+					System.out.println("lettreCode="+c);
+					System.out.println("asciiCode="+ascii);
 				}else{
-					c = (char)(((c - 'a' + this.key) % 26) + 'a');
+					int ascii = (int) c;
+					System.out.println("lettre="+c);
+					System.out.println("ascii="+ascii);
+					ascii += key;
+					if (ascii > 122) {
+						temp = ascii - 123;
+						ascii = 97 + temp;
+					}
+					c = (char) ascii;
+					System.out.println("lettreCode="+c);
+					System.out.println("asciiCode="+ascii);
 				}
 			}
 			this.messageDecode += c;
-			//System.out.println(this.messageDecode);
 		}
 	}
 	
 	public void Decoder_Cesar(String motAdecoder){
-		this.messageDecode = motAdecoder;
-		for(int i = 0; i < this.messageDecode.length(); i++){
-			char c = this.messageDecode.charAt(i);
+		this.messageCode = motAdecoder;
+		for(int i = 0; i < this.messageCode.length(); i++){
+			char c = this.messageCode.charAt(i);
+			int temp;
 			if(Character.isLetter(c)){
 				if(Character.isUpperCase(c)){
-					c = (char)(((c - 'A' - this.key) % 26) + 'A');
+					int ascii = (int) c;
+					System.out.println("lettre="+c);
+					System.out.println("ascii="+ascii);
+					ascii -= key;
+					if (ascii < 64) {
+						temp = 64 - ascii;
+						ascii = 90 + temp;
+					}
+					c = (char) ascii;
+					System.out.println("lettreCode="+c);
+					System.out.println("asciiCode="+ascii);
+					System.out.println();
 				}else{
-					c = (char)(((c - 'a' - this.key) % 26) + 'a');
+					//LOWERCASE
+					int ascii = (int) c;
+					System.out.println("lettre="+c);
+					System.out.println("ascii="+ascii);
+					ascii -= key;
+					if (ascii < 96) {
+						temp = 96 - ascii;
+						ascii = 122 - temp;
+					}
+					c = (char) ascii;
+					System.out.println("lettreCode="+c);
+					System.out.println("asciiCode="+ascii);
+					System.out.println();
 				}
 			}
-			this.messageCode += c;
+			this.messageDecode += c;
 		}
-		//System.out.println(this.messageCode);
 	}
 
 
