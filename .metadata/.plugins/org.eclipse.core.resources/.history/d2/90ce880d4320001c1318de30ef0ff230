@@ -1,8 +1,0 @@
-
-public class mainConv {
-	public static void main(String[] args) {
-		double somme = 57.12;
-	
-		System.out.println(somme + "€");
-	}
-}

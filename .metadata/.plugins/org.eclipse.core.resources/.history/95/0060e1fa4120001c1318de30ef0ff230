@@ -1,5 +1,0 @@
-
-public class mainConv {
-	double somme = 57.45;
-	System.out.println(somme);
-}

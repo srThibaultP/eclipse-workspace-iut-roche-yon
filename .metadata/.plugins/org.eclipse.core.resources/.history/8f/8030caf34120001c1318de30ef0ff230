@@ -1,5 +1,0 @@
-
-public class mainConv {
-	float somme = 57.45;
-	System.out.println(somme;)
-}
