@@ -15,6 +15,7 @@ public class GUI extends JFrame{
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         Panneau image = new Panneau(pImg);
         this.affTexte = new JLabel(pTexte);
         this.fond = new Panneau(pImg);
