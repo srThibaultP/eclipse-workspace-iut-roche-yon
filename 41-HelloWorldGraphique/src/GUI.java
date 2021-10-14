@@ -13,14 +13,17 @@ public class GUI extends JFrame{
         this.setTitle(pTitre);
         this.setSize(500, 500);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Panneau image = new Panneau(pImg);
         this.affTexte = new JLabel(pTexte);
         this.fond = new Panneau(pImg);
-        this.structure = new BorderLayout();
+        this.structure = new BorderLayout(200, 2);
         this.setLayout(this.structure);
         this.add(this.affTexte, this.structure.SOUTH);
         this.add(this.fond, this.structure.CENTER);
+        this.add(image);
+        
     }
 
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 public class mainHelloWorld {
+    private GUI Fenetre;
     public static void main(String[] args) {
         Image img;
         try {
