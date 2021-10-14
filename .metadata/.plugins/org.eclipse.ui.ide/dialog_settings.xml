@@ -5,6 +5,9 @@
 		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/chronos/eclipse-workspace/43-Cesar"/>
+		</list>
 	</section>
 	<section name="NewWizardAction">
 	</section>
@@ -13,5 +16,7 @@
 		<item key="DIALOG_WIDTH" value="569"/>
 		<item key="DIALOG_HEIGHT" value="387"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|10.0|0|GTK|1|"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
 	</section>
 </section>
