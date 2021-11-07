@@ -27,6 +27,6 @@ public class Panneau extends JPanel {
         this.btnSend = new JButton("Envoyer");
         this.adresseIP = new JTextField();
 
-        this.add()
+        //this.add()
     }
 }
