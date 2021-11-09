@@ -5,7 +5,7 @@ import java.awt.*;
 import lry.dip.cesar.Cesar;
 
 public class GUI extends JFrame implements ActionListener {
-    private Panneau fond;
+    private Panneau affichage;
     private Cesar cesar;
 
     public GUI (int pLarg, int pHaut, boolean pResize, String pTitre) {        
@@ -17,18 +17,39 @@ public class GUI extends JFrame implements ActionListener {
         this.setVisible(true);
         
         this.cesar = new Cesar(2);
-        this.fond = new Panneau();
-        add(this.fond);
+        this.affichage = new Panneau();
+        add(this.affichage);
         setVisible(true);   
 
-        this.fond.getConteneur().getBtnCoder().addActionListener(this);
-        this.fond.getConteneur().getBtnDecoder().addActionListener(this);
-        this.fond.getConteneur().getBtnEnr().addActionListener(this);
-        this.fond.getConteneur().getBtnOuvrir().addActionListener(this);
-        this.fond.getConteneur().getBtnSend().addActionListener(this);
-        this.fond.getConteneur().getKey().addActionListener(this);
-        this.fond.getConteneur().getBtnInfoBox().addActionListener(this);
+        this.affichage.getBtnCoder().addActionListener(this);
+        this.affichage.getBtnDecoder().addActionListener(this);
+        this.affichage.getBtnEnr().addActionListener(this);
+        this.affichage.getBtnOuvrir().addActionListener(this);
+        this.affichage.getBtnSend().addActionListener(this);
+        this.affichage.getKey().addActionListener(this);
     }
 
-    public void actionPerformed (ActionEvent actBtn) {}
+    public void actionPerformed (ActionEvent actBtn) {
+        if (actBtn.getSource() == this.affichage.getBtnCoder()) {
+            this.cesar.Coder_Cesar(this.affichage.getMessage().getText());
+            this.affichage.getMessage().setText(this.cesar.getMessageCode());
+        }
+        else if (actBtn.getSource() == this.affichage.getBtnDecoder()) {
+            this.cesar.Decoder_Cesar(this.affichage.getMessage().getText());
+            this.affichage.getMessage().setText(this.cesar.getMessageDecode());
+        }
+        else if (actBtn.getSource() == this.affichage.getBtnEnr()) {
+            this.affichage.enrFichier(this);
+            
+        }
+        else if (actBtn.getSource() == this.affichage.getBtnOuvrir()) {
+            
+        }
+        else if (actBtn.getSource() == this.affichage.getBtnSend()) {
+            
+        }
+        else if (actBtn.getSource() == this.affichage.getKey()) {
+            
+        }
+    }
 }

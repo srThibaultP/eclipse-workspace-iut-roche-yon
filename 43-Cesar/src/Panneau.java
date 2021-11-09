@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class Panneau extends JPanel{
     private JPanel conteneur;
@@ -21,7 +20,7 @@ public class Panneau extends JPanel{
         this.indications = new JLabel("Message :");
         this.indCle = new JLabel("Clé :");
         this.key = new JComboBox();
-        this.message = new JTextArea(10, 50);
+        this.message = new JTextArea(10, 25);
         this.btnCoder = new JButton("Coder");
         this.btnDecoder = new JButton("Décoder");
         this.btnOuvrir = new JButton("Ouvrir");
@@ -35,16 +34,16 @@ public class Panneau extends JPanel{
 
         this.setLayout(this.boite);
 
-        this.add(this.indCle, new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.key, new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.indications, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.message, new GridBagConstraints(0, 2, 2, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.btnCoder, new GridBagConstraints(0, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.btnDecoder, new GridBagConstraints(1, 3, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.btnOuvrir, new GridBagConstraints(0, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.btnEnr, new GridBagConstraints(1, 4, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.adresseIP, new GridBagConstraints(0, 6, 2, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-        this.add(this.btnSend, new GridBagConstraints(0, 7, 2, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.indCle, new GridBagConstraints(0, 0, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.key, new GridBagConstraints(1, 0, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.indications, new GridBagConstraints(0, 1, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.message, new GridBagConstraints(0, 2, 2, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.btnCoder, new GridBagConstraints(0, 3, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.btnDecoder, new GridBagConstraints(1, 3, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.btnOuvrir, new GridBagConstraints(0, 4, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.btnEnr, new GridBagConstraints(1, 4, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.adresseIP, new GridBagConstraints(0, 6, 2, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
+        this.add(this.btnSend, new GridBagConstraints(0, 7, 2, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
     }
 
 
@@ -72,7 +71,7 @@ public class Panneau extends JPanel{
         return this.btnSend;
     }
 
-    public JPanel getConteneur() {
-        return this.conteneur;
-    }       
+    public JComboBox getKey() {
+        return key;
+    }   
 }

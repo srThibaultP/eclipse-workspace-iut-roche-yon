@@ -12,6 +12,7 @@ public class Cesar {
 	}
 
 	public void Coder_Cesar(String motAcoder){
+		this.messageDecode = "";
 		this.messageCode = motAcoder;
 		for(int i = 0; i < this.messageCode.length(); i++){
 			char c = this.messageCode.charAt(i);
@@ -40,6 +41,7 @@ public class Cesar {
 	}
 	
 	public void Decoder_Cesar(String motAdecoder){
+		this.messageDecode = "";
 		this.messageCode = motAdecoder;
 		for(int i = 0; i < this.messageCode.length(); i++){
 			char c = this.messageCode.charAt(i);
@@ -66,7 +68,7 @@ public class Cesar {
 			this.messageDecode += c;
 		}
 	}
-
+/*
 	public void enrFichier(String cheminFichier, String texte) {
 		try {
 			Writer fichier = new java.io.FileWriter(cheminFichier);
@@ -76,6 +78,8 @@ public class Cesar {
 			System.out.println("Erreur d'enregistrement du fichier : " + e);
 		}
 	}
+*/
+	public void enrFichier(GUI cheminFichier) {}
 
 	public void lireFichier(String cheminFichier) {
 		try {
@@ -99,7 +103,8 @@ public class Cesar {
 		this.messageDecode = pMessage;
 	}
 	public String getMessageCode() {
-		return messageCode;
+		//return messageCode;
+		return this.messageDecode;
 	}
 	public void setMessageCode(String pMessage) {
 		this.messageCode = pMessage;
