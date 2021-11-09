@@ -1,21 +1,33 @@
 package lry.dip.cesar;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.Reader;
 import java.io.Writer;
+
+import javax.swing.JFileChooser;
+
+import lry.dip.cesarGUI.*;
 
 public class Cesar {
 	private int key = 3;
 	private String messageCode = "";
 	private String messageDecode = "";
+	private JFileChooser selectionFichier;
+	private File fichier;
+	private FileReader fichierLecture;
+	private BufferedReader cacheFichier;
 	
 	public Cesar(int pKey) {
 		this.key = pKey;
+		this.selectionFichier = new JFileChooser();
 	}
 
 	public void Coder_Cesar(String motAcoder){
-		this.messageDecode = "";
-		this.messageCode = motAcoder;
-		for(int i = 0; i < this.messageCode.length(); i++){
-			char c = this.messageCode.charAt(i);
+		this.messageCode = "";
+		this.messageDecode = motAcoder;
+		for(int i = 0; i < this.messageDecode.length(); i++){
+			char c = this.messageDecode.charAt(i);
 			int temp;
 			if(Character.isLetter(c)){
 				if(Character.isUpperCase(c)){
@@ -36,7 +48,7 @@ public class Cesar {
 					c = (char) ascii;
 				}
 			}
-			this.messageDecode += c;
+			this.messageCode += c;
 		}
 	}
 	
@@ -79,8 +91,39 @@ public class Cesar {
 		}
 	}
 */
-	public void enrFichier(GUI cheminFichier) {}
+	public void enrFichier(GUI cheminFichier) {
+		if (this.selectionFichier.showOpenDialog(cheminFichier) == 0) {
+			this.fichier = this.selectionFichier.getSelectedFile();
+			try {
+				Writer ecriture = new java.io.FileWriter(this.fichier);
+				ecriture.write(this.messageCode);
+				ecriture.close();
+			} catch (Exception e) {
+				System.out.println("Erreur d'enregistrement du fichier : " + e);
+			}
+		}
+	}
+	public void lireFichier(GUI cheminFichier) {
+		this.messageCode = "";
+		if (this.selectionFichier.showOpenDialog(cheminFichier) == 0) {
+			try {
+				this.fichierLecture = new FileReader(new File(this.selectionFichier.getSelectedFile().getAbsolutePath()));
+				this.cacheFichier = new BufferedReader(this.fichierLecture);
+				String lettre = new String();
+				while ((lettre = this.cacheFichier.readLine()) != null) {
+					this.messageCode = String.valueOf(this.messageCode) + lettre;
+				}
+				this.cacheFichier.close();
+				this.fichierLecture.close();
+			} catch (Exception e) {
+				System.out.println("Erreur de lecture du fichier : " + e);
+			}
+		}
+	}
 
+
+
+/*
 	public void lireFichier(String cheminFichier) {
 		try {
 			Reader fichier = new java.io.FileReader(cheminFichier);
@@ -95,7 +138,7 @@ public class Cesar {
 			System.out.println("Erreur de lecture du fichier : " + e);
 		}
 	}
-
+*/
 	public String getMessageDecode() {
 		return messageDecode;
 	}
@@ -103,8 +146,7 @@ public class Cesar {
 		this.messageDecode = pMessage;
 	}
 	public String getMessageCode() {
-		//return messageCode;
-		return this.messageDecode;
+		return messageCode;
 	}
 	public void setMessageCode(String pMessage) {
 		this.messageCode = pMessage;

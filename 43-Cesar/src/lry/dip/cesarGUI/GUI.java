@@ -1,3 +1,5 @@
+package lry.dip.cesarGUI;
+
 import javax.swing.JFrame;
 import java.awt.event.*;
 import java.awt.*;
@@ -8,18 +10,18 @@ public class GUI extends JFrame implements ActionListener {
     private Panneau affichage;
     private Cesar cesar;
 
-    public GUI (int pLarg, int pHaut, boolean pResize, String pTitre) {        
+    public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) {
         this.setTitle(pTitre);
         this.setSize(pLarg, pHaut);
         this.setResizable(pResize);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        
+
         this.cesar = new Cesar(2);
         this.affichage = new Panneau();
         add(this.affichage);
-        setVisible(true);   
+        setVisible(true);
 
         this.affichage.getBtnCoder().addActionListener(this);
         this.affichage.getBtnDecoder().addActionListener(this);
@@ -29,27 +31,27 @@ public class GUI extends JFrame implements ActionListener {
         this.affichage.getKey().addActionListener(this);
     }
 
-    public void actionPerformed (ActionEvent actBtn) {
+    public void actionPerformed(ActionEvent actBtn) {
         if (actBtn.getSource() == this.affichage.getBtnCoder()) {
             this.cesar.Coder_Cesar(this.affichage.getMessage().getText());
             this.affichage.getMessage().setText(this.cesar.getMessageCode());
-        }
-        else if (actBtn.getSource() == this.affichage.getBtnDecoder()) {
+
+        } else if (actBtn.getSource() == this.affichage.getBtnDecoder()) {
             this.cesar.Decoder_Cesar(this.affichage.getMessage().getText());
             this.affichage.getMessage().setText(this.cesar.getMessageDecode());
-        }
-        else if (actBtn.getSource() == this.affichage.getBtnEnr()) {
-            this.affichage.enrFichier(this);
+
+        } else if (actBtn.getSource() == this.affichage.getBtnEnr()) {
+            this.cesar.enrFichier(this);
+
+        } else if (actBtn.getSource() == this.affichage.getBtnOuvrir()) {
+            this.cesar.lireFichier(this);
+            this.affichage.getMessage().setText(this.cesar.getMessageCode());
             
-        }
-        else if (actBtn.getSource() == this.affichage.getBtnOuvrir()) {
-            
-        }
-        else if (actBtn.getSource() == this.affichage.getBtnSend()) {
-            
-        }
-        else if (actBtn.getSource() == this.affichage.getKey()) {
-            
+        } else if (actBtn.getSource() == this.affichage.getBtnSend()) {
+
+        } else if (actBtn.getSource() == this.affichage.getKey()) {
+            this.cesar.setKey(this.affichage.getKey().getSelectedIndex() + 3);
+
         }
     }
 }

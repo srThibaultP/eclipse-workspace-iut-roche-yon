@@ -1,7 +1,9 @@
+package lry.dip.cesarGUI;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Panneau extends JPanel{
+public class Panneau extends JPanel {
     private JPanel conteneur;
 
     private GridBagLayout boite;
@@ -46,7 +48,6 @@ public class Panneau extends JPanel{
         this.add(this.btnSend, new GridBagConstraints(0, 7, 2, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
     }
 
-
     public JTextArea getMessage() {
         return this.message;
     }
@@ -73,5 +74,5 @@ public class Panneau extends JPanel{
 
     public JComboBox getKey() {
         return key;
-    }   
+    }
 }
