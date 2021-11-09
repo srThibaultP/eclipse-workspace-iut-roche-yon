@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 public class Panneau extends JPanel{
     private JPanel conteneur;
+
     private GridBagLayout boite;
     private JLabel indications, indCle;
     private JComboBox key;
@@ -15,6 +16,7 @@ public class Panneau extends JPanel{
     GridBagConstraints c = new GridBagConstraints();
 
     public Panneau() {
+        super();
         this.boite = new GridBagLayout();
         this.indications = new JLabel("Message :");
         this.indCle = new JLabel("Clé :");
@@ -47,26 +49,30 @@ public class Panneau extends JPanel{
 
 
     public JTextArea getMessage() {
-        return message;
+        return this.message;
     }
 
     public JButton getBtnCoder() {
-        return btnCoder;
+        return this.btnCoder;
     }
 
     public JButton getBtnDecoder() {
-        return btnDecoder;
+        return this.btnDecoder;
     }
 
     public JButton getBtnOuvrir() {
-        return btnOuvrir;
+        return this.btnOuvrir;
     }
 
     public JButton getBtnEnr() {
-        return btnEnr;
+        return this.btnEnr;
     }
 
     public JButton getBtnSend() {
-        return btnSend;
+        return this.btnSend;
     }
+
+    public JPanel getConteneur() {
+        return this.conteneur;
+    }       
 }
