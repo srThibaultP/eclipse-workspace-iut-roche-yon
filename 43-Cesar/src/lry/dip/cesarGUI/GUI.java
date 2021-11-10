@@ -6,7 +6,7 @@ import java.awt.event.*;
 import lry.dip.cesar.Cesar;
 
 public class GUI extends JFrame implements ActionListener {
-    private Panneau affichage;
+    private Panneau fond;
     private Cesar cesar;
 
     public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) {
@@ -18,39 +18,39 @@ public class GUI extends JFrame implements ActionListener {
         this.setVisible(true);
 
         this.cesar = new Cesar(2);
-        this.affichage = new Panneau();
-        add(this.affichage);
+        this.fond = new Panneau();
+        add(this.fond);
         setVisible(true);
 
-        this.affichage.getBtnCoder().addActionListener(this);
-        this.affichage.getBtnDecoder().addActionListener(this);
-        this.affichage.getBtnEnr().addActionListener(this);
-        this.affichage.getBtnOuvrir().addActionListener(this);
-        this.affichage.getBtnSend().addActionListener(this);
-        this.affichage.getKey().addActionListener(this);
+        this.fond.getBtnCoder().addActionListener(this);
+        this.fond.getBtnDecoder().addActionListener(this);
+        this.fond.getBtnEnr().addActionListener(this);
+        this.fond.getBtnOuvrir().addActionListener(this);
+        this.fond.getBtnSend().addActionListener(this);
+        this.fond.getKey().addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent actBtn) {
-        if (actBtn.getSource() == this.affichage.getBtnCoder()) {
-            this.cesar.Coder_Cesar(this.affichage.getMessage().getText());
-            this.affichage.getMessage().setText(this.cesar.getMessageCode());
+        if (actBtn.getSource() == this.fond.getBtnCoder()) {
+            this.cesar.Coder_Cesar(this.fond.getMessage().getText());
+            this.fond.getMessage().setText(this.cesar.getMessageCode());
 
-        } else if (actBtn.getSource() == this.affichage.getBtnDecoder()) {
-            this.cesar.Decoder_Cesar(this.affichage.getMessage().getText());
-            this.affichage.getMessage().setText(this.cesar.getMessageDecode());
+        } else if (actBtn.getSource() == this.fond.getBtnDecoder()) {
+            this.cesar.Decoder_Cesar(this.fond.getMessage().getText());
+            this.fond.getMessage().setText(this.cesar.getMessageDecode());
 
-        } else if (actBtn.getSource() == this.affichage.getBtnEnr()) {
+        } else if (actBtn.getSource() == this.fond.getBtnEnr()) {
             this.cesar.enrFichier(this);
 
-        } else if (actBtn.getSource() == this.affichage.getBtnOuvrir()) {
+        } else if (actBtn.getSource() == this.fond.getBtnOuvrir()) {
             this.cesar.lireFichier(this);
-            this.affichage.getMessage().setText(this.cesar.getMessageCode());
+            this.fond.getMessage().setText(this.cesar.getMessageCode());
 
-        } else if (actBtn.getSource() == this.affichage.getBtnSend()) {
+        } else if (actBtn.getSource() == this.fond.getBtnSend()) {
             System.out.println("Ping");
             
-        } else if (actBtn.getSource() == this.affichage.getKey()) {
-            this.cesar.setKey(this.affichage.getKey().getSelectedIndex() + 3);
+        } else if (actBtn.getSource() == this.fond.getKey()) {
+            this.cesar.setKey(this.fond.getKey().getSelectedIndex() + 3);
 
         }
     }
