@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Panneau extends JPanel {
-    private JPanel conteneur;
-
     private GridBagLayout boite;
     private JLabel indications, indCle;
     private JComboBox key;
@@ -13,8 +11,6 @@ public class Panneau extends JPanel {
     private JButton btnCoder, btnDecoder;
     private JButton btnOuvrir, btnEnr, btnSend;
     private JTextField adresseIP;
-
-    GridBagConstraints c = new GridBagConstraints();
 
     public Panneau() {
         super();

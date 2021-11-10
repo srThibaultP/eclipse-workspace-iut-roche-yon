@@ -1,42 +1,45 @@
 package lry.dip.cesar;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Writer;
-
 import javax.swing.JFileChooser;
 
 import lry.dip.cesarGUI.*;
 
 public class Cesar {
+	//Clé de base à 3
 	private int key = 3;
+	//On met les variables à zero
 	private String messageCode = "";
 	private String messageDecode = "";
+	//Gestionnaire de fichiers
 	private JFileChooser selectionFichier;
 	private File fichier;
 	private FileReader fichierLecture;
 	private BufferedReader cacheFichier;
-	
+
 	public Cesar(int pKey) {
 		this.key = pKey;
 		this.selectionFichier = new JFileChooser();
 	}
 
-	public void Coder_Cesar(String motAcoder){
+	public void Coder_Cesar(String motAcoder) {
 		this.messageCode = "";
 		int ascii = 0;
 
-		for(int i = 0; i < motAcoder.length(); i++){
+		for (int i = 0; i < motAcoder.length(); i++) {
 			ascii = motAcoder.charAt(i);
-				if ((ascii >= 97 && ascii <= 122 - this.key) || (ascii >= 65 && ascii <= 90 - this.key)) {
-					ascii += this.key;
-				} else if ((ascii >= 122 - this.key && ascii <= 122) || (ascii >= 90 - this.key && ascii <= 90)) {
-					ascii = ascii - 26 + this.key;
-				}
-				this.messageCode += (char) ascii;
+			if ((ascii >= 97 && ascii <= 122 - this.key) || (ascii >= 65 && ascii <= 90 - this.key)) {
+				ascii += this.key;
+			} else if ((ascii >= 122 - this.key && ascii <= 122) || (ascii >= 90 - this.key && ascii <= 90)) {
+				ascii = ascii - 26 + this.key;
+			}
+			this.messageCode += (char) ascii;
 		}
 	}
-	
+
 	public void Decoder_Cesar(String motAdecoder) {
 		this.messageDecode = "";
 		int ascii = 0;
@@ -65,6 +68,7 @@ public class Cesar {
 			}
 		}
 	}
+
 	public void lireFichier(GUI cheminFichier) {
 		this.messageCode = "";
 		if (this.selectionFichier.showOpenDialog(cheminFichier) == 0) {
@@ -73,7 +77,7 @@ public class Cesar {
 				this.fichierLecture = new FileReader(new File(this.selectionFichier.getSelectedFile().getAbsolutePath()));
 				this.cacheFichier = new BufferedReader(this.fichierLecture);
 				String lettre = new String();
-				
+
 				while ((lettre = this.cacheFichier.readLine()) != null) {
 					this.messageCode = String.valueOf(this.messageCode) + lettre;
 				}
@@ -86,7 +90,6 @@ public class Cesar {
 			}
 		}
 	}
-
 
 	public String getMessageDecode() {
 		return messageDecode;

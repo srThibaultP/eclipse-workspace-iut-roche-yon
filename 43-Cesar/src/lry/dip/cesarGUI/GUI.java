@@ -2,7 +2,6 @@ package lry.dip.cesarGUI;
 
 import javax.swing.JFrame;
 import java.awt.event.*;
-import java.awt.*;
 
 import lry.dip.cesar.Cesar;
 
@@ -46,9 +45,10 @@ public class GUI extends JFrame implements ActionListener {
         } else if (actBtn.getSource() == this.affichage.getBtnOuvrir()) {
             this.cesar.lireFichier(this);
             this.affichage.getMessage().setText(this.cesar.getMessageCode());
-            
-        } else if (actBtn.getSource() == this.affichage.getBtnSend()) {
 
+        } else if (actBtn.getSource() == this.affichage.getBtnSend()) {
+            System.out.println("Ping");
+            
         } else if (actBtn.getSource() == this.affichage.getKey()) {
             this.cesar.setKey(this.affichage.getKey().getSelectedIndex() + 3);
 
