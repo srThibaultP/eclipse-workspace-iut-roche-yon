@@ -6,6 +6,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,8 @@ public class GUI extends JFrame implements ActionListener{
     private JMenu menuFichier;
     private JMenuItem itemAjouter, itemSupprimer, itemQuitter;
     private JTable tableau;
+    private ModeleTable donnees;
+    private JScrollPane scroll;
 
     public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) {
         super();
@@ -23,14 +26,18 @@ public class GUI extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        String[] entetes = { "Titre", "Nom", "Prénom", "Adresse" };
-
         this.menuBar = new JMenuBar();
         this.menuFichier = new JMenu("Fichier");
         this.itemAjouter = new JMenuItem("Ajouter");
         this.itemSupprimer = new JMenuItem("Supprimer");
         this.itemQuitter = new JMenuItem("Quitter");
-        this.tableau = new JTable();
+
+        this.donnees = new ModeleTable();
+        this.tableau = new JTable(this.donnees);
+        this.scroll = new JScrollPane(this.tableau);
+        this.add(scroll);
+        
+        
 
         
 
@@ -55,7 +62,15 @@ public class GUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent actBtn) {
         if (actBtn.getSource() == this.getItemQuitter()) {
-            if (JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment quitter ?", "Quitter", 0) == 0) System.exit(0);
+            if (JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment quitter ?", "Quitter", 0) == 0) {
+                System.exit(0);
+            }
+        }
+        else if (actBtn.getSource() == this.getItemAjouter()) {
+            System.out.println("Je suis bien dans la fenêtre ajouter");
+        }
+        else if (actBtn.getSource() == this.getItemSupprimer()) {
+            
         }
     }
 

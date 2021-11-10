@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeleTable extends AbstractTableModel{
-    private ArrayList <Echantillon> data;
-    private String title;
+    private ArrayList <Echantillon> data = new ArrayList<Echantillon>();
+    private String[] title = {"Titre", "Nom", "Prénom", "Adresse"};
 
 
     public ModeleTable() {}
@@ -15,9 +15,13 @@ public class ModeleTable extends AbstractTableModel{
         return 0;
     }
     
-    public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {}
+    public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
+        this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
+    }
 
-    public void removeData(int rowIndex) {}
+    public void removeData(int rowIndex) {
+        this.data.remove(rowIndex);
+    }
 
 
 
@@ -27,7 +31,6 @@ public class ModeleTable extends AbstractTableModel{
     
     @Override
     public int getColumnCount() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
