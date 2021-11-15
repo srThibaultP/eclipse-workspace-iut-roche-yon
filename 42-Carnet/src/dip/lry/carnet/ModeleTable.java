@@ -11,10 +11,6 @@ public class ModeleTable extends AbstractTableModel{
 
     public ModeleTable() {}
     
-    public int getRowCount() {
-        return 0;
-    }
-    
     public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
         this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
     }
@@ -23,15 +19,17 @@ public class ModeleTable extends AbstractTableModel{
         this.data.remove(rowIndex);
     }
 
-
-
-
-
-
+    public int getRowCount() {
+        return this.data.size();
+    }
     
     @Override
     public int getColumnCount() {
-        return 0;
+        return this.title.length;
+    }
+
+    public String getColumnName(int columnIndex) {
+        return this.title[columnIndex];
     }
 
     @Override
