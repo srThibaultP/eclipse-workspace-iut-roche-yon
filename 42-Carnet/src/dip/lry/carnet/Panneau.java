@@ -5,17 +5,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 
 public class Panneau extends JPanel {
+    
+    /*************************** ATTRIBUTS ********************************/
+
     private JComboBox titre;
     private JTextField nom, prenom;
     private JTextArea adresse;
     private JPanel panLabel, panSaisie;
     private JLabel labTitre, labNom, labPrenom, labAdresse;
 
+    /****************************************** CONSTRUCTEUR ****************************************/
 
     public Panneau() {
         super();
@@ -50,6 +53,8 @@ public class Panneau extends JPanel {
 
         this.setVisible(true);
     }
+
+    /****************************************** GETTERS / SETTERS ****************************************/
 
     public JComboBox getTitre() {
         return titre;

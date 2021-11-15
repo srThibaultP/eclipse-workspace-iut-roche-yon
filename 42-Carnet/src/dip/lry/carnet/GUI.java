@@ -7,17 +7,19 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI extends JFrame implements ActionListener{
+    /*************************** ATTRIBUTS ********************************/
     private JMenuBar menuBar;
     private JMenu menuFichier;
     private JMenuItem itemAjouter, itemSupprimer, itemQuitter;
     private JTable tableau;
     private ModeleTable donnees;
     private Panneau fond;
+
+    /*************************CONSTRUCTEUR *******************************/
 
     public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) {
         super();
@@ -56,6 +58,8 @@ public class GUI extends JFrame implements ActionListener{
       
     }
 
+    /********************************** METHODES ****************************************/
+
     @Override
     public void actionPerformed(ActionEvent actBtn) {
         if (actBtn.getSource() == this.getItemQuitter()) {
@@ -76,6 +80,8 @@ public class GUI extends JFrame implements ActionListener{
             this.donnees.removeData(this.donnees.getRowCount() - 1);
         }
     }
+
+    /************************************* GETTERS / SETTERS ********************************/
 
     public JMenuItem getItemAjouter() {
         return itemAjouter;
@@ -100,7 +106,4 @@ public class GUI extends JFrame implements ActionListener{
     public void setItemQuitter(JMenuItem itemQuitter) {
         this.itemQuitter = itemQuitter;
     }
-
-
-    
 }

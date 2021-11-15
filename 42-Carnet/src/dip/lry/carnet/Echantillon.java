@@ -1,10 +1,14 @@
 package dip.lry.carnet;
 
 public class Echantillon {
+    /************************ ATTRIBUTS **********************************/
+
     private String titre;
     private String nom;
     private String prenom;
     private String adresse;
+
+    /************************ METHODES **********************************/
 
     public Echantillon(String pTitre, String pNom, String pPrenom, String pAdresse) {
         this.titre = pTitre;
@@ -12,6 +16,8 @@ public class Echantillon {
         this.prenom = pPrenom;
         this.adresse = pAdresse;
     }
+
+    /********************** GETTERS / SETTERS ****************************/
 
     public String getTitre() {
         return this.titre;

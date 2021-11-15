@@ -1,18 +1,21 @@
 package dip.lry.carnet;
 
 import java.util.ArrayList;
-
 import javax.swing.table.AbstractTableModel;
 
 public class ModeleTable extends AbstractTableModel{
     private ArrayList <Echantillon> data = new ArrayList();
     private String[] title = {"Titre", "Nom", "Prénom", "Adresse"};
 
+    /****************************************** CONSTRUCTEUR ****************************************/
+
     public ModeleTable() {
         this.data.add(new Echantillon("M", "Pech", "Thibault", "Une adresse"));
         this.data.add(new Echantillon("Mme", "Abc", "eeeeee", "Deux adresse"));
     }
-    
+
+    /****************************************** METHODES ****************************************/
+
     public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
         this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
         this.fireTableRowsInserted(this.data.size() - 1, this.data.size() - 1);
@@ -22,6 +25,8 @@ public class ModeleTable extends AbstractTableModel{
         this.data.remove(rowIndex);
         this.fireTableRowsDeleted(rowIndex, rowIndex);
     }
+
+    /****************************************** GETTERS / SETTERS ****************************************/
 
     public int getRowCount() {
         return this.data.size();
