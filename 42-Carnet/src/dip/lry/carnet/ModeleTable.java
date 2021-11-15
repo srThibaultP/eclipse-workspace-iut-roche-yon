@@ -8,16 +8,19 @@ public class ModeleTable extends AbstractTableModel{
     private ArrayList <Echantillon> data = new ArrayList();
     private String[] title = {"Titre", "Nom", "Prénom", "Adresse"};
 
-
-    public ModeleTable() {}
+    public ModeleTable() {
+        this.data.add(new Echantillon("M", "Pech", "Thibault", "Une adresse"));
+        this.data.add(new Echantillon("Mme", "Abc", "eeeeee", "Deux adresse"));
+    }
     
     public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
         this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
-        fireTableRowsInserted(this.data.size() - 1, this.data.size() - 1);
+        this.fireTableRowsInserted(this.data.size() - 1, this.data.size() - 1);
     }
 
     public void removeData(int rowIndex) {
         this.data.remove(rowIndex);
+        this.fireTableRowsDeleted(rowIndex, rowIndex);
     }
 
     public int getRowCount() {

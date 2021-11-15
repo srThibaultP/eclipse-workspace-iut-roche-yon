@@ -73,7 +73,7 @@ public class GUI extends JFrame implements ActionListener{
             }
         }
         else if (actBtn.getSource() == this.getItemSupprimer()) {
-            
+            this.donnees.removeData(this.donnees.getRowCount() - 1);
         }
     }
 
