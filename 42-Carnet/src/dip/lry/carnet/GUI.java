@@ -64,9 +64,12 @@ public class GUI extends JFrame implements ActionListener{
             }
         }
         else if (actBtn.getSource() == this.getItemAjouter()) {
-            System.out.println("Je suis bien dans la fenêtre ajouter");
+            //System.out.println("Je suis bien dans la fenêtre ajouter");
             if (JOptionPane.showConfirmDialog(this, this.fond, "Nouveau contact", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
-                
+                this.donnees.addData(this.fond.getTitre().getSelectedItem().toString(), this.fond.getPrenom().getText(),this.fond.getNom().getText(), this.fond.getAdresse().getText());
+                this.fond.getNom().setText("");
+                this.fond.getPrenom().setText("");
+                this.fond.getAdresse().setText("");
             }
         }
         else if (actBtn.getSource() == this.getItemSupprimer()) {

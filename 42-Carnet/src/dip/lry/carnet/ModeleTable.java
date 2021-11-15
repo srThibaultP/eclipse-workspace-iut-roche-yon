@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 public class ModeleTable extends AbstractTableModel{
-    private ArrayList <Echantillon> data = new ArrayList<Echantillon>();
+    private ArrayList <Echantillon> data = new ArrayList();
     private String[] title = {"Titre", "Nom", "Prénom", "Adresse"};
 
 
@@ -13,6 +13,7 @@ public class ModeleTable extends AbstractTableModel{
     
     public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
         this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
+        fireTableRowsInserted(this.data.size() - 1, this.data.size() - 1);
     }
 
     public void removeData(int rowIndex) {
@@ -33,8 +34,17 @@ public class ModeleTable extends AbstractTableModel{
     }
 
     @Override
-    public Object getValueAt(int arg0, int arg1) {
-        // TODO Auto-generated method stub
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        switch (columnIndex) {
+        case 0:
+            return ((Echantillon) this.data.get(rowIndex)).getTitre();
+        case 1:
+            return ((Echantillon) this.data.get(rowIndex)).getPrenom();
+        case 2:
+            return ((Echantillon) this.data.get(rowIndex)).getNom();
+        case 3:
+            return ((Echantillon) this.data.get(rowIndex)).getAdresse();
+        }
         return null;
     }
 }
