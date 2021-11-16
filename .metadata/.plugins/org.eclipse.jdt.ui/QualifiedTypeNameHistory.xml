@@ -4,4 +4,6 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>
