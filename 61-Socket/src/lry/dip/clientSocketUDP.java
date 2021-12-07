@@ -18,6 +18,7 @@ public class clientSocketUDP {
     private byte[] bufferSend;
     private byte[] bufferRec;
 
+    /***************************** CONSTRUCTEUR **********************************/
     public clientSocketUDP(){
         this.IPServeur = null;
         this.portServeur = 0;
@@ -36,7 +37,8 @@ public class clientSocketUDP {
         }
         //this.dataRec = new DatagramPacket(this.bufferRec, this.bufferRec.length);
     }
-
+    
+    /************************ METHODE ****************************************/
     public void envoyerRequete(String message, int pPort, String pIP){
         this.portServeur = pPort;
         try {
