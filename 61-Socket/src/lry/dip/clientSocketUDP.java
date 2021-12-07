@@ -58,6 +58,19 @@ public class clientSocketUDP {
     }
 
     public boolean recevoirReponse(){
+        byte[] bufferRec = new byte[256];
+        DatagramPacket packet = new DatagramPacket(bufferRec, bufferRec.length);
+
+        try {
+            clientSocket.receive(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String msg;
+        msg = new String(packet.getData()).trim();
+
+        System.out.println(
+                "Message reçu :" + packet.getAddress().getHostAddress() + ": " + msg);
         return false;
     }
 
