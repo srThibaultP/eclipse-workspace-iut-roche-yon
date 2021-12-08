@@ -6,7 +6,7 @@ public class App {
         serveur.lancerServeur(8080, "192.168.50.252");
         serveur.attendreClient();
         while (serveur.recevoirRequete()) {
-            System.out.println("Message reçu: " + serveur.getReponse());
+            System.out.println("Message reçu: " + serveur.getMessage());
             serveur.envoyerReponse("hello tcp");
             serveur.deconnecterClient();
             serveur.arreterServeur();

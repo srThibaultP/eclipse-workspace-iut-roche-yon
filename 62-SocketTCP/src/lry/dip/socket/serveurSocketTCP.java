@@ -23,6 +23,7 @@ public class serveurSocketTCP {
     private InputStream fluxEntree = null;
     private InputStreamReader bufferEntree = null;
     private BufferedReader requete = null;
+    private String message = null;
 
     
     public serveurSocketTCP(){}
@@ -69,8 +70,10 @@ public class serveurSocketTCP {
 
             this.fluxEntree = this.client.getInputStream();
             this.bufferEntree = new InputStreamReader(this.fluxEntree);
+
             this.fluxSortie = this.client.getOutputStream();
             this.reponse = new PrintWriter(this.fluxSortie, true);
+
             this.requete = new BufferedReader(this.bufferEntree);
         } catch (IOException e) {
             e.printStackTrace();
@@ -91,7 +94,7 @@ public class serveurSocketTCP {
 
     public boolean recevoirRequete() {
         try {
-            this.requete.readLine();
+            this.message = this.requete.readLine();
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -104,22 +107,8 @@ public class serveurSocketTCP {
         this.reponse.println(message);
     }
 
-
-    public PrintWriter getReponse() {
-        return reponse;
+    public String getMessage() {
+        return message;
     }
-
-    public void setReponse(PrintWriter reponse) {
-        this.reponse = reponse;
-    }
-
-    public BufferedReader getRequete() {
-        return requete;
-    }
-
-    public void setRequete(BufferedReader requete) {
-        this.requete = requete;
-    }
-
     
 }
