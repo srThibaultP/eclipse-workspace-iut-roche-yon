@@ -9,24 +9,38 @@ import java.io.PrintWriter;
 import java.net.Inet4Address;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class serveurSocketTCP {
-    private ServerSocket serveur = null;
-    private Inet4Address IPServeur = null;
-    private int portServeur = 0;
-    private OutputStream fluxSortie = null;
-    private PrintWriter reponse = null;
-    private Socket client = null;
-    private Inet4Address IPClient = null;
-    private int PortClient = 0 ;
-    private InputStream fluxEntree = null;
-    private InputStreamReader bufferEntree = null;
-    private BufferedReader requete = null;
-    private String message = null;
+    private ServerSocket serveur;
+    private Inet4Address IPServeur;
+    private int portServeur;
+    private OutputStream fluxSortie;
+    private PrintWriter reponse;
+    private Socket client;
+    private Inet4Address IPClient;
+    private int PortClient;
+    private InputStream fluxEntree;
+    private InputStreamReader bufferEntree;
+    private BufferedReader requete;
+    private String message;
 
     
-    public serveurSocketTCP(){}
+    public serveurSocketTCP(){
+        this.serveur = null;
+        this.IPServeur = null;
+        this.portServeur = 0;
+        this.fluxSortie = null;
+        this.reponse = null;
+        this.client = null;
+        this.IPClient = null;
+        this.PortClient = 0;
+        this.fluxEntree = null;
+        this.bufferEntree = null;
+        this.requete = null;
+        this.message = null;
+    }
 
     public void lancerServeur(int pPort, String pIP){
         System.out.println("Démarrage du serveur");
