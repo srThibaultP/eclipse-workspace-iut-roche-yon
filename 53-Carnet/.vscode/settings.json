@@ -1,4 +1,8 @@
 {
     "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin"
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/caiomi/Downloads/mysql-connector-java-5.1.44-bin.jar"
+    ]
 }

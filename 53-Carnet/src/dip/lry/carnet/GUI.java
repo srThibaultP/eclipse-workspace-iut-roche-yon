@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class GUI extends JFrame implements ActionListener{
     /*************************** ATTRIBUTS ********************************/
@@ -19,9 +20,9 @@ public class GUI extends JFrame implements ActionListener{
     private ModeleTable donnees;
     private Panneau fond;
 
-    /*************************CONSTRUCTEUR *******************************/
+    /*************************CONSTRUCTEUR*******************************/
 
-    public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) {
+    public GUI(int pLarg, int pHaut, boolean pResize, String pTitre) throws ClassNotFoundException, SQLException {
         super();
         this.fond = new Panneau();
         this.setTitle(pTitre);
@@ -42,7 +43,7 @@ public class GUI extends JFrame implements ActionListener{
         this.menuFichier.add(this.itemQuitter);
         
 
-        this.donnees = new ModeleTable();
+        this.donnees = new ModeleTable("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/baseTest?useSSL=false", "adminrtlry", "rtlry");
         this.tableau = new JTable(this.donnees);
         this.add(new JScrollPane(tableau));
         this.menuBar.add(this.menuFichier);
