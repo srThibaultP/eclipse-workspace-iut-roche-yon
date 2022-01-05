@@ -47,10 +47,10 @@ public class testBDD {
         this.instruction.executeUpdate("CREATE TABLE IF NOT EXISTS tableTest(id INT NOT NULL AUTO_INCREMENT, nom VARCHAR(10), tatoo INT, naiss DATE, taille DOUBLE, PRIMARY KEY (id))");
     
         // Créer et affecter des droits aux utilisateurs des tables de données de test
-        System.out.println("Tentative de création d'un utilisateur...");
-        this.instruction.executeUpdate("CREATE USER IF NOT EXISTS 'userTest'@'localhost'");
-        this.instruction.executeUpdate("SET password FOR 'userTest'@'localhost' = password('passTest')");
-        this.instruction.executeUpdate("GRANT INSERT, SELECT, UPDATE, DELETE ON baseTest.tableTest TO 'userTest'@'localhost'");
+        // System.out.println("Tentative de création d'un utilisateur...");
+        // this.instruction.executeUpdate("CREATE USER IF NOT EXISTS 'userTest'@'localhost'");
+        // this.instruction.executeUpdate("SET password FOR 'userTest'@'localhost' = password('passTest')");
+        // this.instruction.executeUpdate("GRANT INSERT, SELECT, UPDATE, DELETE ON baseTest.tableTest TO 'userTest'@'localhost'");
 
         // Préparer les instructions en écriture
         System.out.println("Préparation des instructions...");

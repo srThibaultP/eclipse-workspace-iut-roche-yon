@@ -14,9 +14,10 @@ public class App {
             essai.insertData("Maestro", 4589632, new Date(2005, 10, 4), 32.4);
             essai.insertData("Fripouille", 9823345, new Date(2008, 12, 31), 28.1);
             essai.selectData();
-        } catch (ClassNotFoundException | SQLException SQLex) {
-            System.out.println("Problème de connexion à mySQL");
-            System.out.println(SQLex.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
