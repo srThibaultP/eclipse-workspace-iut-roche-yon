@@ -122,7 +122,7 @@ public class serveurSocketTCP {
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
     
 }
