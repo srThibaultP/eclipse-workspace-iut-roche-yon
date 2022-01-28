@@ -1,9 +1,17 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 11:18:14
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 14:06:34
+ */
+
 package dip.lry.carnet;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
+
+import java.io.Console;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,10 +71,11 @@ public class ModeleTable extends AbstractTableModel{
         }
         try {
             while (this.resultat.next()) {
+                // Ajout des données dans l'ArrayList
                 this.data.add(new Echantillon(this.resultat.getString("titre"), this.resultat.getString("Prenom"), this.resultat.getString("nom"), this.resultat.getString("adresse")));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+            // Erreur lors de l'ajout des données
             e.printStackTrace();
         }
     }
@@ -74,29 +83,35 @@ public class ModeleTable extends AbstractTableModel{
     /****************************************** METHODES ****************************************/
 
     public void addData(String pTitre, String pNom, String pPrenom, String pAdresse) {
+        // Préparation de la requête d'insertion des données dans la table
         String requete = "INSERT INTO carnetAdresse VALUES (DEFAULT,'" + pTitre + "', '" + pNom + "','" + pPrenom + "','" + pAdresse + "')";
 
         try {
+            // Exécution de la requête : Insertion des données dans la table
             Statement stmt = this.connexion.createStatement();
             stmt.executeUpdate(requete);
         } catch (SQLException e) {
+            System.out.println("Une erreur est survenu lors de l'insertion des données : ");
             e.printStackTrace();
         }
-        
+        // Ajout des données dans l'ArrayList
         this.data.add(new Echantillon(pTitre, pNom, pPrenom, pAdresse));
         this.fireTableRowsInserted(this.data.size() - 1, this.data.size() - 1);
     }
 
     public void removeData(int rowIndex) {
+        // Préparation de la requête de suppression des données dans la table
         String requete = "DELETE FROM carnetAdresse ORDER BY id DESC LIMIT 1";
 
         try {
+            // Exécution de la requête : Suppression des données dans la table
             Statement stmt = this.connexion.createStatement();
             stmt.executeUpdate(requete);
         } catch (SQLException e) {
+            System.out.println("Une erreur est survenu lors de la suppression des données : ");
             e.printStackTrace();
         }
-
+        // Suppression des données dans l'ArrayList
         this.data.remove(rowIndex);
         this.fireTableRowsDeleted(rowIndex, rowIndex);
     }
@@ -107,7 +122,6 @@ public class ModeleTable extends AbstractTableModel{
         return this.data.size();
     }
     
-    @Override
     public int getColumnCount() {
         return this.title.length;
     }
@@ -116,7 +130,6 @@ public class ModeleTable extends AbstractTableModel{
         return this.title[columnIndex];
     }
 
-    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
         case 0:

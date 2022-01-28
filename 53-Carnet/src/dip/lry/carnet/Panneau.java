@@ -1,3 +1,10 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 11:18:14
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 13:15:03
+ */
+
 package dip.lry.carnet;
 
 import javax.swing.JComboBox;
@@ -22,6 +29,7 @@ public class Panneau extends JPanel {
 
     public Panneau() {
         super();
+        // Création des items de l'interface
         this.titre = new JComboBox();
         this.nom = new JTextField();
         this.prenom = new JTextField();
@@ -36,6 +44,7 @@ public class Panneau extends JPanel {
         this.titre.addItem("Mme");
         this.titre.addItem("Mr");
 
+        // Position de l'interface
         this.panLabel = new JPanel(new GridLayout(4, 1, 5, 15));
         this.panSaisie = new JPanel(new GridLayout(4, 1, 5, 5));
 		

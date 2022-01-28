@@ -1,3 +1,10 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 11:18:14
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 14:13:29
+ */
+
 package dip.lry.carnet;
 
 public class Echantillon {

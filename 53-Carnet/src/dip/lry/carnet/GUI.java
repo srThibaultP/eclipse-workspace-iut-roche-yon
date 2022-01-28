@@ -1,3 +1,9 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 11:18:14
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 14:13:12
+ */
 package dip.lry.carnet;
 
 import javax.swing.JFrame;
@@ -42,7 +48,7 @@ public class GUI extends JFrame implements ActionListener{
         this.menuFichier.add(this.itemSupprimer);
         this.menuFichier.add(this.itemQuitter);
         
-
+        // Paramètres de connection à la BDD
         this.donnees = new ModeleTable("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/baseTest?useSSL=false", "adminrtlry", "rtlry");
         this.tableau = new JTable(this.donnees);
         this.add(new JScrollPane(tableau));
@@ -61,22 +67,27 @@ public class GUI extends JFrame implements ActionListener{
 
     /********************************** METHODES ****************************************/
 
-    @Override
     public void actionPerformed(ActionEvent actBtn) {
+        // Quitter l'application (on ne peut pas quitter avec le bouton fermer)
         if (actBtn.getSource() == this.getItemQuitter()) {
             if (JOptionPane.showConfirmDialog(this, "Voulez-vous vraiment quitter ?", "Quitter", 0) == 0) {
                 System.exit(0);
             }
         }
+        // Ajouter un contact
         else if (actBtn.getSource() == this.getItemAjouter()) {
             //System.out.println("Je suis bien dans la fenêtre ajouter");
+            // On crée une fenêtre d'ajout
             if (JOptionPane.showConfirmDialog(this, this.fond, "Nouveau contact", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
+                // On récupère les données de la fenêtre
                 this.donnees.addData(this.fond.getTitre().getSelectedItem().toString(), this.fond.getPrenom().getText(),this.fond.getNom().getText(), this.fond.getAdresse().getText());
+                // Reset des informations 
                 this.fond.getNom().setText("");
                 this.fond.getPrenom().setText("");
                 this.fond.getAdresse().setText("");
             }
         }
+        // Supprimer un contact
         else if (actBtn.getSource() == this.getItemSupprimer()) {
             this.donnees.removeData(this.donnees.getRowCount() - 1);
         }
