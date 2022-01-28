@@ -1,3 +1,10 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 13:45:55
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 12:43:45
+ */
+
 package lry.dip.cesar;
 
 import java.io.BufferedReader;
@@ -29,6 +36,7 @@ public class Cesar {
 
 	public Cesar(int pKey) {
 		this.key = pKey;
+		// On initialise le gestionnaire de fichier
 		this.selectionFichier = new JFileChooser();
 	}
 
@@ -38,9 +46,10 @@ public class Cesar {
 		this.messageCode = "";
 		int ascii = 0;
 
+		// On parcours le message à coder
 		for (int i = 0; i < motAcoder.length(); i++) {
 			ascii = motAcoder.charAt(i);
-
+			// On code le message
 			if ((ascii >= 97 && ascii <= 122 - this.key) || (ascii >= 65 && ascii <= 90 - this.key)) {
 				ascii += this.key;
 			} else if ((ascii >= 122 - this.key && ascii <= 122) || (ascii >= 90 - this.key && ascii <= 90)) {
@@ -55,9 +64,10 @@ public class Cesar {
 		this.messageDecode = "";
 		int ascii = 0;
 
+		// On parcours le message à décoder
 		for (int i = 0; i < motAdecoder.length(); i++) {
 			ascii = motAdecoder.charAt(i);
-
+			// On décode le message
 			if ((ascii >= 97 + this.key && ascii <= 122) || (ascii >= 65 + this.key && ascii <= 90)) {
 				ascii -= this.key;
 			} else if ((ascii >= 97 && ascii <= 97 + this.key) || (ascii >= 65 && ascii <= 65 + this.key)) {
@@ -69,9 +79,10 @@ public class Cesar {
 	}
 
 	public void enrFichier(GUI cheminFichier) {
+		// Si on désire enregistrer un fichier
 		if (this.selectionFichier.showOpenDialog(cheminFichier) == 0) {
 			this.fichier = this.selectionFichier.getSelectedFile();
-
+			// On ouvre le fichier en écriture
 			try {
 				Writer ecriture = new java.io.FileWriter(this.fichier);
 				ecriture.write(this.messageCode);
@@ -85,17 +96,19 @@ public class Cesar {
 
 	public void lireFichier(GUI cheminFichier) {
 		this.messageCode = "";
-
+		// Si on désire lire un fichier
 		if (this.selectionFichier.showOpenDialog(cheminFichier) == 0) {
 			try {
+				// On ouvre le fichier en lecture
 				this.fichierLecture = new FileReader(new File(this.selectionFichier.getSelectedFile().getAbsolutePath()));
 				this.cacheFichier = new BufferedReader(this.fichierLecture);
 				String lettre = new String();
 
+				// On lit le fichier
 				while ((lettre = this.cacheFichier.readLine()) != null) {
 					this.messageCode = String.valueOf(this.messageCode) + lettre;
 				}
-
+				// On ferme le fichier
 				this.cacheFichier.close();
 				this.fichierLecture.close();
 

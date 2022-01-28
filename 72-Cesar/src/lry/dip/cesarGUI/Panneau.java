@@ -1,3 +1,10 @@
+/**
+ * @Author: Thibault PECH
+ * @Date:   2022-01-05 13:45:55
+ * @Last Modified by:   Thibault PECH
+ * @Last Modified time: 2022-01-28 12:35:14
+ */
+
 package lry.dip.cesarGUI;
 
 import javax.swing.*;
@@ -36,10 +43,10 @@ public class Panneau extends JPanel {
 
         this.setLayout(this.boite);
 
-        /*
-         * Positionnement du GUI, arguments disponible dans la doc:
+        /**
+         * Positionnement du GUI, liste des arguments dans la doc:
          * https://docs.oracle.com/javase/7/docs/api/java/awt/GridBagConstraints.html
-        */
+         */
         this.add(this.indCle, new GridBagConstraints(0, 0, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
         this.add(this.key, new GridBagConstraints(1, 0, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
         this.add(this.indications, new GridBagConstraints(0, 1, 1, 1, 0, 0, 25, 2, new Insets(0, 0, 0, 0), 0, 0));
